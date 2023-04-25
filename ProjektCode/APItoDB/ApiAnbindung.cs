@@ -16,5 +16,14 @@ namespace APItoDB
             this.requestType = requestType;
             this.input = input;
         }
+
+        public String GetOutputAsString()
+        {
+            String output = "";
+
+           
+
+            return output;
+        }
     }
 }

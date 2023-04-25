@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Berufsschule\\2. Lehrjahr\\bfk s\\repositorys\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj": {}
+    "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj": {}
   },
   "projects": {
-    "D:\\Berufsschule\\2. Lehrjahr\\bfk s\\repositorys\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj": {
+    "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Berufsschule\\2. Lehrjahr\\bfk s\\repositorys\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
+        "projectUniqueName": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
         "projectName": "APItoDB",
-        "projectPath": "D:\\Berufsschule\\2. Lehrjahr\\bfk s\\repositorys\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
-        "packagesPath": "C:\\Users\\anna.moutidis\\.nuget\\packages\\",
-        "outputPath": "D:\\Berufsschule\\2. Lehrjahr\\bfk s\\repositorys\\Api-into-DB\\ProjektCode\\APItoDB\\obj\\",
+        "projectPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
+        "packagesPath": "C:\\Users\\finn-torben.clas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anna.moutidis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\finn-torben.clas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
