@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\APItoDB.csproj",
+      "projectUniqueName": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
       "projectName": "APItoDB",
-      "projectPath": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\APItoDB.csproj",
+      "projectPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
       "packagesPath": "C:\\Users\\finn-torben.clas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\obj\\",
+      "outputPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\finn-torben.clas\\AppData\\Roaming\\NuGet\\NuGet.Config",
