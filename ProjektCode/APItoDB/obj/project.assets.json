@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\finn-torben.clas\\.nuget\\packages\\": {}
+    "C:\\Users\\Nicholas.Neumann\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\APItoDB.csproj",
+      "projectUniqueName": "C:\\Users\\Nicholas.Neumann\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
       "projectName": "APItoDB",
-      "projectPath": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\APItoDB.csproj",
-      "packagesPath": "C:\\Users\\finn-torben.clas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\finn-torben.clas\\Desktop\\Neues Projekt\\ProjektCode\\APItoDB\\obj\\",
+      "projectPath": "C:\\Users\\Nicholas.Neumann\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\APItoDB.csproj",
+      "packagesPath": "C:\\Users\\Nicholas.Neumann\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nicholas.Neumann\\Source\\Repos\\JustFiTo\\Api-into-DB\\ProjektCode\\APItoDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\finn-torben.clas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nicholas.Neumann\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

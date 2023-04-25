@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="C:\Users\Nicholas.Neumann\OneDrive\Dokumente\#1_IT Berufsschule\Lehrjahr_2\BfK-S\2023-25.04.2023\Program.cs" Link="Program.cs" />
+  </ItemGroup>
+
 </Project>
