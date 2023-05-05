@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj": {}
+    "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\APItoDB.csproj": {}
   },
   "projects": {
-    "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj": {
+    "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\APItoDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj",
+        "projectUniqueName": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\APItoDB.csproj",
         "projectName": "APItoDB",
-        "projectPath": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj",
-        "packagesPath": "/Users/anna.moutidis/.nuget/packages/",
-        "outputPath": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/obj/",
+        "projectPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\APItoDB.csproj",
+        "packagesPath": "C:\\Users\\finn-torben.clas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\finn-torben.clas\\Source\\Repos\\JustFiTo\\Api-into-DB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/anna.moutidis/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\finn-torben.clas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,31 +45,16 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[3.1.30, 3.1.30]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

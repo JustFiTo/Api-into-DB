@@ -1,29 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net.Http;
 
 namespace APItoDB
 {
     class ApiAnbindung
-    {
-        private String url;
-        private String requestType;
-        private String input;
-
-        public ApiAnbindung(String url, String requestType, String input)
-        {
-            this.url = url;
-            this.requestType = requestType;
-            this.input = input;
-        }
-
+    { 
         public String GetOutputAsString()
-        {
-            String output = "";
-
-           
-
-            return output;
+        {           
+        HttpClient client = new HttpClient();
+        var response = client.GetStringAsync("https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={9e617812433d2b1f4c01730556b05b73}").Result;
+               
+           return response;
         }
     }
 }

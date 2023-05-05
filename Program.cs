@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace APItoDB
 {
@@ -6,9 +7,9 @@ namespace APItoDB
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Hello World!");
-
+            HttpClient client = new HttpClient();
+            var response = client.GetStringAsync("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={08c3a93b591ca03e5816875e07b4381f}").Result;
+            Console.WriteLine(response.ToString());
         }
     }
 }

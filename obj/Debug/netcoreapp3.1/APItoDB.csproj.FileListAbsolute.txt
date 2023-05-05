@@ -1,0 +1,13 @@
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.exe
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.deps.json
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.runtimeconfig.json
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.runtimeconfig.dev.json
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.dll
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\bin\Debug\netcoreapp3.1\APItoDB.pdb
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.csprojAssemblyReference.cache
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.AssemblyInfoInputs.cache
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.AssemblyInfo.cs
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.csproj.CoreCompileInputs.cache
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.dll
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.pdb
+C:\Users\finn-torben.clas\Source\Repos\JustFiTo\Api-into-DB\obj\Debug\netcoreapp3.1\APItoDB.genruntimeconfig.cache
