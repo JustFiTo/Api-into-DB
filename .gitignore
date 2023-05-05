@@ -1,7 +1,5 @@
 *.cache
 /obj/project.assets.json
-/obj/Debug/netcoreapp3.1/APItoDB.AssemblyInfo.cs
-/obj/APItoDB.csproj.nuget.dgspec.json
-/obj/APItoDB.csproj.nuget.g.targets
-/obj/Debug/netcoreapp3.1/APItoDB.GeneratedMSBuildEditorConfig.editorconfig
+/obj/Debug/netcoreapp3.1/APItoDB.*
+/obj/APItoDB.csproj.nuget.*
 UserPrefs.xml
