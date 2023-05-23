@@ -36,38 +36,6 @@ namespace APItoDB
 
         }
     }
-    public class WeatherMap
-    {
-        public string name { get; set; }
-        public Sys sys { get; set; }
-        public List<Weather> weather { get; set; }
-        public Main main { get; set; }
-        public City city { get; set; }
-        public List<Elements> date { get; set; }
-
-    }
-    public class Sys
-    {
-        public string country { get; set; }
-    }
-    public class Weather
-    {
-        public string description { get; set; }
-    }
-    public class Main
-    {
-        public float temp { get; set; }
-        public float feels_like { get; set; }
-    }
-
-    public class City
-    {
-        public string name { get; set; }
-    }
-    public class Elements
-    {
-        public string visibility { get; set; }
-    }
 
 }
 
