@@ -5,3 +5,5 @@
 /obj/APItoDB.csproj.nuget.g.targets
 /obj/Debug/netcoreapp3.1/APItoDB.GeneratedMSBuildEditorConfig.editorconfig
 UserPrefs.xml
+obj
+bin
