@@ -11,8 +11,9 @@ namespace APItoDB
     {
         static void Main(string[] args)
         {
-            Console.Write("Hier Stadt eingeben:\n>");
-            string city = Console.ReadLine();
+            //Console.Write("Hier Stadt eingeben:\n>");
+            //string city = Console.ReadLine();
+            string city = "Toronto";
             HttpClient httpClient = new HttpClient();
             string requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=08c3a93b591ca03e5816875e07b4381f&units=metric";
             HttpResponseMessage HttpResponse = httpClient.GetAsync(requestURL).Result;
@@ -24,33 +25,28 @@ namespace APItoDB
             Console.WriteLine($"Beschreibung: {weathermap.weather[0].description}");
             Console.WriteLine($"\n");
             Console.WriteLine($"Die Temperaturen in " + city + $" liegen aktuel gefühlt bei {weathermap.main.feels_like}°C, " +
-                $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm");
-
-            Console.ReadKey();
+                $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n");
 
             MySqlConnection conn = connectToDb();
             conn.Open();
             var cmd = new MySqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "";
+            cmd.CommandText = "INSERT INTO City (city_id) VALUES (3);";
             cmd.ExecuteNonQuery();
             conn.Close();
-
-
 
         }
 
         public static MySqlConnection connectToDb()
         {
             string server = "localhost";
-            string database = "mysqldb1";
+            string database = "API";
             string user = "root";
-            string password = "u1s2e3r4";
             string port = "3306";
-            string sslM = "none";
+            string sslM = "Required";
 
-            string connString = String.Format("server={0};port={1};user id={2}; password={3}; database={4}; SslMode={5}", server, port, user, password, database, sslM);
+            string connString = String.Format("server={0};port={1};user id={2}; database={3}; SslMode={4}", server, port, user, database, sslM);
 
             MySqlConnection conn = new MySqlConnection(connString);
 
