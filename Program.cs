@@ -15,10 +15,17 @@ namespace APItoDB
             //string city = Console.ReadLine();
             string city = "Toronto";
             HttpClient httpClient = new HttpClient();
+
             string requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=08c3a93b591ca03e5816875e07b4381f&units=metric";
             HttpResponseMessage HttpResponse = httpClient.GetAsync(requestURL).Result;
             string response = HttpResponse.Content.ReadAsStringAsync().Result;
-            Console.Write(response);
+
+            string requestForecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=08c3a93b591ca03e5816875e07b4381f&units=metric";
+            HttpResponseMessage HttpResponse2 = httpClient.GetAsync(requestForecastURL).Result;
+            string response2 = HttpResponse2.Content.ReadAsStringAsync().Result;
+
+            Console.Write(response + "\n");
+            Console.Write(response2);
 
             WeatherMap weathermap = JsonSerializer.Deserialize<WeatherMap>(response);
             Console.WriteLine($"\nLand: {weathermap.sys.country}");
