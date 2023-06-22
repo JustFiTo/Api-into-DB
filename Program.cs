@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Diagnostics.Metrics;
 using System.Net.Http;
 using System.Text.Json;
 
@@ -20,18 +21,21 @@ namespace APItoDB
             HttpResponseMessage HttpResponse = httpClient.GetAsync(requestURL).Result;
             string response = HttpResponse.Content.ReadAsStringAsync().Result;
 
-            string requestForecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=08c3a93b591ca03e5816875e07b4381f&units=metric";
-            HttpResponseMessage HttpResponse2 = httpClient.GetAsync(requestForecastURL).Result;
-            string response2 = HttpResponse2.Content.ReadAsStringAsync().Result;
+            //string requestForecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=08c3a93b591ca03e5816875e07b4381f&units=metric";
+            //HttpResponseMessage HttpResponse2 = httpClient.GetAsync(requestForecastURL).Result;
+            //string response2 = HttpResponse2.Content.ReadAsStringAsync().Result;
 
-            Console.Write(response + "\n");
-            Console.Write(response2);
+            //Console.Write(response + "\n");
+            //Console.Write(response2);
 
             WeatherMap weathermap = JsonSerializer.Deserialize<WeatherMap>(response);
             Console.WriteLine($"\nLand: {weathermap.sys.country}");
             Console.WriteLine($"Beschreibung: {weathermap.weather[0].description}");
             Console.WriteLine($"\n");
-            Console.WriteLine($"Die Temperaturen in " + city + $" liegen aktuel gefühlt bei {weathermap.main.feels_like}°C, " +
+
+            DateTime date = new DateTime(1970, 01, 01).AddHours(2).AddSeconds(weathermap.dt); //weathermap.dt returns Unix time (seconds since 01.01.1970) + german time zone (+2h)
+
+            Console.WriteLine($"Die Temperaturen am {date.ToString("dd.MM.yyyy")} um {date.ToString("HH:mm:ss")}Uhr in { weathermap.name} liegen aktuel gefühlt bei {weathermap.main.feels_like}°C, " +
                 $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n");
 
             MySqlConnection conn = connectToDb();
