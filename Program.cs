@@ -38,10 +38,20 @@ namespace APItoDB
 
             DateTime date = new DateTime(1970, 01, 01).AddHours(2).AddSeconds(weathermap.dt); //weathermap.dt returns Unix time (seconds since 01.01.1970) + german time zone (+2h)
 
-            Console.WriteLine($"Die Temperaturen am {date.ToString("dd.MM.yyyy")} um {date.ToString("HH:mm:ss")}Uhr in {weathermap.name} liegen aktuel gefühlt bei {weathermap.main.feels_like}°C, " +
+            Console.WriteLine($"Die Temperaturen am {date.ToString("dd.MM.yyyy")} um {date.ToString("HH:mm:ss")}Uhr in {weathermap.name} liegen gefühlt bei {weathermap.main.feels_like}°C, " +
                 $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n");
 
-            Console.WriteLine("Forecast: " + weatherMapForecast.city.name);
+
+            for (int i = 0; i < weatherMapForecast.list.Count; i++)
+            {
+
+
+                DateTime dateFc = new DateTime(1970, 01, 01).AddHours(2).AddSeconds(weatherMapForecast.list[i].dt); //0 first forecast, 1 later forecast ...
+
+                Console.WriteLine($"Die Temperaturen am {dateFc.ToString("dd.MM.yyyy")} um {dateFc.ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
+                $"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");
+            }
+
 
             MySqlConnection conn = connectToDb();
             conn.Open();
