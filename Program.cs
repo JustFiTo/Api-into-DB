@@ -16,7 +16,7 @@ namespace APItoDB
             WeatherMap weathermap = API.ResponseCurrent(city);
             WeatherMapForecast weatherMapForecast = API.ResponseForecast(city);
 
-            DateTime date = new DateTime(1970, 01, 01).AddHours(2); //weathermap.dt returns Unix time (seconds since 01.01.1970) + german time zone (+2h)
+            DateTime date = new DateTime(1970, 01, 01).AddSeconds(weathermap.timezone); //weathermap.dt returns Unix time (seconds since 01.01.1970)
 
             Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weathermap.dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weathermap.dt).ToString("HH:mm:ss")}Uhr in {weathermap.name} liegen gefühlt bei {weathermap.main.feels_like}°C, " +
                 $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n");
@@ -29,6 +29,7 @@ namespace APItoDB
             }
 
             DB.AddSQL();
+            Console.ReadKey();
 
         }
     }
