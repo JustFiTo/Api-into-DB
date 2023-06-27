@@ -13,7 +13,7 @@ namespace APItoDB
             conn.Open();
             var cmd = new MySqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "INSERT INTO City (city_id) VALUES (5);";
+            cmd.CommandText = "INSERT INTO Weatherdata (dates, name, country, temp, feelslike, decription, visibility, windSpeed, windDeg, sunset, sunrise) VALUES ('dates2', 'name', 'country', 22, 23, 'decription', 100, 10, 38, 'sunset', 'sunrise');";
             cmd.ExecuteNonQuery();
             conn.Close();
         }
