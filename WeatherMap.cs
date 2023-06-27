@@ -11,6 +11,8 @@ namespace APItoDB
         public List<Weather> weather { get; set; }
         public Main main { get; set; }
         public List<Elements> date { get; set; }
+        public Wind wind { get; set; }
+        public float visibility { get; set; }
 
     }
 

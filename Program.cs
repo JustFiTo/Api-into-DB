@@ -19,7 +19,7 @@ namespace APItoDB
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weathermap.timezone); //weathermap.dt returns Unix time (seconds since 01.01.1970)
 
             Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weathermap.dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weathermap.dt).ToString("HH:mm:ss")}Uhr in {weathermap.name} liegen gefühlt bei {weathermap.main.feels_like}°C, " +
-                $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n");
+                $"aber in wirklichkeit ist es {weathermap.main.temp}°C warm\n { weathermap.wind.deg}  {weathermap.wind.speed} {weathermap.visibility} Sunrise: {date.AddSeconds(weathermap.sys.sunrise)} Sunset: {date.AddSeconds(weathermap.sys.sunset)}\"");
 
 
             for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
