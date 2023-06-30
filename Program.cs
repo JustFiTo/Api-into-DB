@@ -28,7 +28,7 @@ namespace APItoDB
                 $"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");
             }
 
-            DB.AddSQL();
+            DB.AddSQL(weathermap);
             Console.ReadKey();
 
         }
