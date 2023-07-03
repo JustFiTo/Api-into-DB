@@ -8,24 +8,32 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/Users/anna.moutidis/.nuget/packages/": {}
+    "C:\\Users\\Nicholas\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj",
+      "projectUniqueName": "C:\\Users\\Nicholas\\source\\repos\\Api-into-DB\\APItoDB.csproj",
       "projectName": "APItoDB",
-      "projectPath": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/APItoDB.csproj",
-      "packagesPath": "/Users/anna.moutidis/.nuget/packages/",
-      "outputPath": "/Users/anna.moutidis/Documents/repositorys/Api-into-DB/obj/",
+      "projectPath": "C:\\Users\\Nicholas\\source\\repos\\Api-into-DB\\APItoDB.csproj",
+      "packagesPath": "C:\\Users\\Nicholas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nicholas\\source\\repos\\Api-into-DB\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/anna.moutidis/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Nicholas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -54,26 +62,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[3.1.30, 3.1.30]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
