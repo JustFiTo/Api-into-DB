@@ -47,10 +47,20 @@ namespace WPF_UI
 
         private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
         {
-
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Gefühlt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextLand_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
