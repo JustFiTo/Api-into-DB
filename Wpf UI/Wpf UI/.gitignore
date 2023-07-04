@@ -1,0 +1,7 @@
+*.cache
+/obj/project.assets.json
+/obj/Debug/netcoreapp3.1/APItoDB.*
+/obj/APItoDB.csproj.nuget.*
+UserPrefs.xml
+obj
+bin
