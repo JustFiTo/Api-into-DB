@@ -45,6 +45,7 @@ namespace WPF_UI
 
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weatherMap.timezone);
 
+            txtBox_Von.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
             txtBox_TextLand.Text = weatherMap.sys.country.ToString();
             txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
             //txtBox_Bedingungen.Text = weatherMap.weather.description.ToString();
@@ -61,6 +62,13 @@ namespace WPF_UI
 
 
             
+        }
+
+        private void OpenWindow(object sender, RoutedEventArgs e)
+        {
+            SecendWindow objSecondWindow = new SecendWindow();
+            this.Visibility = Visibility.Hidden;
+            objSecondWindow.Show();
         }
 
     }
