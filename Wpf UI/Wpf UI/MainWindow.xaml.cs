@@ -42,8 +42,86 @@ namespace WPF_UI
 
             WeatherMap weatherMap = API.ResponseCurrent(city);
 
+            txtBox_TextLand.Text = weatherMap.sys.ToString();
+            txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
+            //txtBox_Bedingungen.Text = weatherMap.weather.description.ToString();
+            txtBox_Sichtweite.Text = weatherMap.visibility.ToString();
+            txtBox_Windstärke.Text = weatherMap.wind.speed.ToString();
+            txtBox_Gefühlt.Text = weatherMap.main.feels_like.ToString();
+            //txtBox_Aufgang.Text = weatherMap.sys.sunrise.ToString();
+            //txtBox_Untergang.Text = weatherMap.sys.sunset.ToString();
+            txtBox_Windrichtung.Text = weatherMap.wind.deg.ToString();
+
+
+
+
+
             //DateTime date = txtBox_Von.Text();
         }
 
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_BtnPrognose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextLand_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Temperatur_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Sichtweite_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Windstärke_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Gefühlt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Aufgang_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Untergang_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtBox_Windrichtung_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
