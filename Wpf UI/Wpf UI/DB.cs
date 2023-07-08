@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Windows.Controls;
 using MySql.Data.MySqlClient;
 namespace APItoDB
 {

@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.Net.Http;
 using System.Text.Json;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace WPF_UI
 {
@@ -25,10 +26,15 @@ namespace WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DataGrid dataGrid;
+        private MySqlConnection conn;
+
         public MainWindow()
         {
             InitializeComponent();
             CreateDataGridColumns();
+
+            dataGrid = dtGrid_OldDates;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,7 +52,7 @@ namespace WPF_UI
 
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weatherMap.timezone);
 
-            txtBox_Von.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
+            txtBlock_Date.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
 
             txtBox_TextLand.Text = weatherMap.sys.country.ToString();
             txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
@@ -67,13 +73,14 @@ namespace WPF_UI
             for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
             {
                 dtGrid_Forecast.ItemsSource = weatherMapForecast.list;          //date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
+                //dtGrid_Forecast.ItemsSource = weatherMapForecast.city.name;
 
-                /*Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
-                $"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");*/
+                //Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
+                //$"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");
             }
 
-            //DB.AddSQL(weatherMap);
-            //Console.ReadKey();
+            DB.AddSQL(weatherMap);
+            Console.ReadKey();
         }
 
         private void CreateDataGridColumns()
@@ -133,18 +140,27 @@ namespace WPF_UI
 
 
 
-        private void OpenWindow(object sender, RoutedEventArgs e)
-        {
-            SecendWindow objSecondWindow = new SecendWindow();
-            this.Visibility = Visibility.Hidden;
-            objSecondWindow.Show();
-        }
+        //private void OpenWindow(object sender, RoutedEventArgs e)
+        //{
+        //    SecendWindow objSecondWindow = new SecendWindow();
+        //    this.Visibility = Visibility.Hidden;
+        //    objSecondWindow.Show();
+        //}
 
-        private void OpenWindow2(object sender, RoutedEventArgs e)
+        private void ShowOldDates(object sender, RoutedEventArgs e) //Button Old Dates
         {
-            ThirdWindow objThirdWindow = new ThirdWindow();
-            this.Visibility = Visibility.Hidden;
-            objThirdWindow.Show();
+            DataTable dataTable = new DataTable();
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM Weatherdata", conn))
+            {
+                adapter.Fill(dataTable);
+            }
+
+            dataGrid.ItemsSource = dataTable.DefaultView;
+
+
+            //ThirdWindow objThirdWindow = new ThirdWindow();
+            //this.Visibility = Visibility.Hidden;
+            //objThirdWindow.Show();
         }
     }
 }
