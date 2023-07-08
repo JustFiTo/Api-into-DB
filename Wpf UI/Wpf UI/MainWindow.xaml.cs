@@ -28,7 +28,7 @@ namespace WPF_UI
         public MainWindow()
         {
             InitializeComponent();
-
+            CreateDataGridColumns();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -66,12 +66,72 @@ namespace WPF_UI
 
             for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
             {
-                dtGrid_Forecast.ItemsSource = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
+                dtGrid_Forecast.ItemsSource = weatherMapForecast.list;          //date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
 
                 /*Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
                 $"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");*/
             }
+
+            //DB.AddSQL(weatherMap);
+            //Console.ReadKey();
         }
+
+        private void CreateDataGridColumns()
+        {
+            DataGridTextColumn tagColumn = new DataGridTextColumn();
+            tagColumn.Header = "Tag";
+            tagColumn.Binding = new System.Windows.Data.Binding("Tag");
+
+            DataGridTextColumn stadtColumn = new DataGridTextColumn();
+            stadtColumn.Header = "Stadt";
+            stadtColumn.Binding = new System.Windows.Data.Binding("Stadt");
+
+            DataGridTextColumn landColumn = new DataGridTextColumn();
+            landColumn.Header = "Land";
+            landColumn.Binding = new System.Windows.Data.Binding("Land");
+
+            DataGridTextColumn temperaturColumn = new DataGridTextColumn();
+            temperaturColumn.Header = "Temperatur";
+            temperaturColumn.Binding = new System.Windows.Data.Binding("Temperatur");
+
+            DataGridTextColumn gefuehltColumn = new DataGridTextColumn();
+            gefuehltColumn.Header = "Gefühlt";
+            gefuehltColumn.Binding = new System.Windows.Data.Binding("Gefuehlt");
+
+            DataGridTextColumn sichtweiteColumn = new DataGridTextColumn();
+            sichtweiteColumn.Header = "Sichtweite";
+            sichtweiteColumn.Binding = new System.Windows.Data.Binding("Sichtweite");
+
+            DataGridTextColumn windstaerkeColumn = new DataGridTextColumn();
+            windstaerkeColumn.Header = "Windstärke";
+            windstaerkeColumn.Binding = new System.Windows.Data.Binding("Windstaerke");
+
+            DataGridTextColumn windrichtungColumn = new DataGridTextColumn();
+            windrichtungColumn.Header = "Windrichtung";
+            windrichtungColumn.Binding = new System.Windows.Data.Binding("Windrichtung");
+
+            DataGridTextColumn sonnenaufgangColumn = new DataGridTextColumn();
+            sonnenaufgangColumn.Header = "Sonnenaufgang";
+            sonnenaufgangColumn.Binding = new System.Windows.Data.Binding("Sonnenaufgang");
+
+            DataGridTextColumn sonnenuntergangColumn = new DataGridTextColumn();
+            sonnenuntergangColumn.Header = "Sonnenuntergang";
+            sonnenuntergangColumn.Binding = new System.Windows.Data.Binding("Sonnenuntergang");
+
+            // Füge die Spalten zum DataGrid hinzu
+            dtGrid_Forecast.Columns.Add(tagColumn);
+            dtGrid_Forecast.Columns.Add(stadtColumn);
+            dtGrid_Forecast.Columns.Add(landColumn);
+            dtGrid_Forecast.Columns.Add(temperaturColumn);
+            dtGrid_Forecast.Columns.Add(gefuehltColumn);
+            dtGrid_Forecast.Columns.Add(sichtweiteColumn);
+            dtGrid_Forecast.Columns.Add(windstaerkeColumn);
+            dtGrid_Forecast.Columns.Add(windrichtungColumn);
+            dtGrid_Forecast.Columns.Add(sonnenaufgangColumn);
+            dtGrid_Forecast.Columns.Add(sonnenuntergangColumn);
+        }
+
+
 
         private void OpenWindow(object sender, RoutedEventArgs e)
         {
