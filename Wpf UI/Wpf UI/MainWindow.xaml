@@ -9,11 +9,9 @@
     <Grid>
         <Button Content="Run" Margin="740,10,10,380" Click="Button_Click"/>
         <TextBox x:Name="txtBox_Stadt" HorizontalAlignment="Left" Margin="94,20,0,0" Text="Stadt" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="25" TextAlignment="Center" FontSize="16"/>
-        <Button x:Name="btn_OldDates" Content="Old Dates" HorizontalAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Height="34" Width="80" Click="OpenWindow"/>
-        <TextBox x:Name="txtBox_Bis" Text="27.06.23" TextWrapping="Wrap" Margin="661,20,84,389"/>
+        <Button x:Name="btn_OldDates" Content="Old Dates" HorizontalAlignment="Center" Margin="0,390,0,0" VerticalAlignment="Top" Height="34" Width="80" Click="OpenWindow2"/>
         <TextBox x:Name="txtBox_Von" Text="20.06.23" TextWrapping="Wrap" Margin="535,20,210,389"/>
-        <TextBlock Text="Bis" TextWrapping="Wrap" Margin="608,20,155,389"/>
-        <TextBlock Text="Von" TextWrapping="Wrap" Margin="479,20,284,389"/>
+        <TextBlock Text="Am" TextWrapping="Wrap" Margin="479,20,284,389"/>
         <TextBlock HorizontalAlignment="Left" Margin="94,87,0,0" Text="Aktuelle Temperatur" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBox_Temperatur" HorizontalAlignment="Left" Margin="94,108,0,0" Text="30,00C°" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtBox_TextLand" HorizontalAlignment="Left" Margin="94,50,0,0" Text="Deutschland" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -31,7 +29,8 @@
         <TextBox x:Name="txtBox_Untergang" HorizontalAlignment="Left" Margin="498,170,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="661,149,0,0" Text="Windrichtung" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBox_Windrichtung" HorizontalAlignment="Left" Margin="661,170,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="txtBox_BtnPrognose" Content="Prognose" Margin="94,0,586,0" VerticalAlignment="Center" Height="32"/>
+        <Button x:Name="Btn_Prognose" Content="Prognose" Margin="94,386,586,0" VerticalAlignment="Top" Height="32" Click="OpenWindow"/>
+        <DataGrid x:Name="dtGrid_Forecast" AutoGenerateColumns="True" Margin="94,193,254,53" />
 
     </Grid>
 

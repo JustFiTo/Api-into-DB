@@ -28,7 +28,7 @@ namespace WPF_UI
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,18 +42,20 @@ namespace WPF_UI
             //string date = txtBox_Von.Text;
 
             WeatherMap weatherMap = API.ResponseCurrent(city);
+            WeatherMapForecast weatherMapForecast = API.ResponseForecast(city);
 
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weatherMap.timezone);
 
             txtBox_Von.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
+
             txtBox_TextLand.Text = weatherMap.sys.country.ToString();
             txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
-            //txtBox_Bedingungen.Text = weatherMap.weather.description.ToString();
+            //txtBox_Bedingungen.Text = weatherMap.weather.description...
             txtBox_Sichtweite.Text = weatherMap.visibility.ToString();
             txtBox_Windstärke.Text = weatherMap.wind.speed.ToString();
             txtBox_Gefühlt.Text = weatherMap.main.feels_like.ToString();
-            //txtBox_Aufgang.Text = weatherMap.sys.sunrise.ToString();
-            //txtBox_Untergang.Text = weatherMap.sys.sunset.ToString();
+            txtBox_Aufgang.Text = date.AddSeconds(weatherMap.sys.sunrise).ToString();
+            txtBox_Untergang.Text = date.AddSeconds(weatherMap.sys.sunset).ToString();
             txtBox_Windrichtung.Text = weatherMap.wind.deg.ToString();
 
 
@@ -61,7 +63,14 @@ namespace WPF_UI
             //DateTime date = txtBox_Von.Text();
 
 
-            
+
+            for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
+            {
+                dtGrid_Forecast.ItemsSource = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
+
+                /*Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
+                $"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");*/
+            }
         }
 
         private void OpenWindow(object sender, RoutedEventArgs e)
@@ -71,5 +80,11 @@ namespace WPF_UI
             objSecondWindow.Show();
         }
 
+        private void OpenWindow2(object sender, RoutedEventArgs e)
+        {
+            ThirdWindow objThirdWindow = new ThirdWindow();
+            this.Visibility = Visibility.Hidden;
+            objThirdWindow.Show();
+        }
     }
 }

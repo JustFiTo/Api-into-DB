@@ -9,24 +9,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace WPF_UI
 {
     /// <summary>
-    /// Interaktionslogik für SecendWindow.xaml
+    /// Interaktionslogik für ThirdWindow.xaml
     /// </summary>
-    public partial class SecendWindow : Window
+    public partial class ThirdWindow : Window
     {
-        public SecendWindow()
+        public ThirdWindow()
         {
             InitializeComponent();
-        }
-
-
-        private void LoadDataIntoDataGrid(List<List> list)
-        {
-            //WeatherForecast.ItemsSource = list;
         }
     }
 }

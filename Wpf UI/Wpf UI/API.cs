@@ -26,7 +26,7 @@ namespace APItoDB
 
         }
 
-        /*public static WeatherMapForecast ResponseForecast(string city)
+        public static WeatherMapForecast ResponseForecast(string city)
         {
 
             HttpClient httpClient = new HttpClient();
@@ -36,7 +36,7 @@ namespace APItoDB
             WeatherMapForecast weatherMapForecast = JsonSerializer.Deserialize<WeatherMapForecast>(response2);
 
             return weatherMapForecast;
-        }*/
+        }
     }
 }
 
