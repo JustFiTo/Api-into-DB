@@ -19,40 +19,7 @@ namespace APItoDB
             string dateString = date.AddSeconds(weathermap.dt).ToString("dd.MM.yyyy HH:mm:ss");
             string sunsetString = date.AddSeconds(weathermap.sys.sunset).ToString("HH:mm:ss");
             string sunriseString = date.AddSeconds(weathermap.sys.sunrise).ToString("HH:mm:ss");
-            string deg = "";
-
-            if (weathermap.wind.deg >= 0 && weathermap.wind.deg < 45)
-            {
-                deg = "N";
-            }
-            else if (weathermap.wind.deg >= 45 && weathermap.wind.deg < 90)
-            {
-                deg = "NO";
-            }
-            else if (weathermap.wind.deg >= 90 && weathermap.wind.deg < 135)
-            {
-                deg = "O";
-            }
-            else if (weathermap.wind.deg >= 135 && weathermap.wind.deg < 180)
-            {
-                deg = "SO";
-            }
-            else if (weathermap.wind.deg >= 180 && weathermap.wind.deg < 225)
-            {
-                deg = "S";
-            }
-            else if (weathermap.wind.deg >= 225 && weathermap.wind.deg < 270)
-            {
-                deg = "SW";
-            }
-            else if (weathermap.wind.deg >= 270 && weathermap.wind.deg < 315)
-            {
-                deg = "W";
-            }
-            else if (weathermap.wind.deg >= 315 && weathermap.wind.deg < 360)
-            {
-                deg = "NW";
-            }
+            string deg = Program.changeWindDeg(weathermap);
 
             MySqlConnection conn = connectToDb();
             conn.Open();

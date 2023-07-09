@@ -35,40 +35,7 @@ namespace WPF_UI
             WeatherMapForecast weatherMapForecast = API.ResponseForecast(city);
 
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weatherMap.timezone);
-            string deg = "";
-
-            if (weatherMap.wind.deg >= 0 && weatherMap.wind.deg < 45)
-            {
-                deg = "N";
-            }
-            else if (weatherMap.wind.deg >= 45 && weatherMap.wind.deg < 90)
-            {
-                deg = "NO";
-            }
-            else if (weatherMap.wind.deg >= 90 && weatherMap.wind.deg < 135)
-            {
-                deg = "O";
-            }
-            else if (weatherMap.wind.deg >= 135 && weatherMap.wind.deg < 180)
-            {
-                deg = "SO";
-            }
-            else if (weatherMap.wind.deg >= 180 && weatherMap.wind.deg < 225)
-            {
-                deg = "S";
-            }
-            else if (weatherMap.wind.deg >= 225 && weatherMap.wind.deg < 270)
-            {
-                deg = "SW";
-            }
-            else if (weatherMap.wind.deg >= 270 && weatherMap.wind.deg < 315)
-            {
-                deg = "W";
-            }
-            else if (weatherMap.wind.deg >= 315 && weatherMap.wind.deg < 360)
-            {
-                deg = "NW";
-            }
+            string deg = Program.changeWindDeg(weatherMap);
 
             txtBlock_Date.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
 
@@ -92,40 +59,7 @@ namespace WPF_UI
             List<ForecastData> forecastDataList = new List<ForecastData>();
             for (int i = 0; i < weatherMapForecast.list.Count; i++)
             {
-                string deg = "";
-
-                if (weatherMapForecast.list[i].wind.deg >= 0 && weatherMapForecast.list[i].wind.deg < 45)
-                {
-                    deg = "N";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 45 && weatherMapForecast.list[i].wind.deg < 90)
-                {
-                    deg = "NO";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 90 && weatherMapForecast.list[i].wind.deg < 135)
-                {
-                    deg = "O";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 135 && weatherMapForecast.list[i].wind.deg < 180)
-                {
-                    deg = "SO";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 180 && weatherMapForecast.list[i].wind.deg < 225)
-                {
-                    deg = "S";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 225 && weatherMapForecast.list[i].wind.deg < 270)
-                {
-                    deg = "SW";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 270 && weatherMapForecast.list[i].wind.deg < 315)
-                {
-                    deg = "W";
-                }
-                else if (weatherMapForecast.list[i].wind.deg >= 315 && weatherMapForecast.list[i].wind.deg < 360)
-                {
-                    deg = "NW";
-                }
+                string deg = Program.changeWindDegForecast(weatherMapForecast, i);
                 ForecastData forecastData = new ForecastData { Uhrzeit = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
                forecastDataList.Add(forecastData);
             }
