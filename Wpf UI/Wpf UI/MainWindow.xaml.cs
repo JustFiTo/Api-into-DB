@@ -20,19 +20,11 @@ using System.Data;
 
 namespace WPF_UI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,6 +35,40 @@ namespace WPF_UI
             WeatherMapForecast weatherMapForecast = API.ResponseForecast(city);
 
             DateTime date = new DateTime(1970, 01, 01).AddSeconds(weatherMap.timezone);
+            string deg = "";
+
+            if (weatherMap.wind.deg >= 0 && weatherMap.wind.deg < 45)
+            {
+                deg = "N";
+            }
+            else if (weatherMap.wind.deg >= 45 && weatherMap.wind.deg < 90)
+            {
+                deg = "NO";
+            }
+            else if (weatherMap.wind.deg >= 90 && weatherMap.wind.deg < 135)
+            {
+                deg = "O";
+            }
+            else if (weatherMap.wind.deg >= 135 && weatherMap.wind.deg < 180)
+            {
+                deg = "SO";
+            }
+            else if (weatherMap.wind.deg >= 180 && weatherMap.wind.deg < 225)
+            {
+                deg = "S";
+            }
+            else if (weatherMap.wind.deg >= 225 && weatherMap.wind.deg < 270)
+            {
+                deg = "SW";
+            }
+            else if (weatherMap.wind.deg >= 270 && weatherMap.wind.deg < 315)
+            {
+                deg = "W";
+            }
+            else if (weatherMap.wind.deg >= 315 && weatherMap.wind.deg < 360)
+            {
+                deg = "NW";
+            }
 
             txtBlock_Date.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
 
@@ -52,9 +78,9 @@ namespace WPF_UI
             txtBox_Sichtweite.Text = weatherMap.visibility.ToString();
             txtBox_Windstärke.Text = weatherMap.wind.speed.ToString();
             txtBox_Gefühlt.Text = weatherMap.main.feels_like.ToString();
-            txtBox_Aufgang.Text = date.AddSeconds(weatherMap.sys.sunrise).ToString();
-            txtBox_Untergang.Text = date.AddSeconds(weatherMap.sys.sunset).ToString();
-            txtBox_Windrichtung.Text = weatherMap.wind.deg.ToString();
+            txtBox_Aufgang.Text = date.AddSeconds(weatherMap.sys.sunrise).ToString("HH:mm:ss");
+            txtBox_Untergang.Text = date.AddSeconds(weatherMap.sys.sunset).ToString("HH:mm:ss");
+            txtBox_Windrichtung.Text = deg;
 
             this.CreateDataGridColumns(weatherMapForecast, date);
             DB.AddSQL(weatherMap);
@@ -62,77 +88,52 @@ namespace WPF_UI
 
         private void CreateDataGridColumns(WeatherMapForecast weatherMapForecast, DateTime date)
         {
-            /* DataGridTextColumn tagColumn = new DataGridTextColumn();
-             tagColumn.Header = "Tag";
-             tagColumn.Binding = new System.Windows.Data.Binding("Tag");
-
-             DataGridTextColumn stadtColumn = new DataGridTextColumn();
-             stadtColumn.Header = "Stadt";
-             stadtColumn.Binding = new System.Windows.Data.Binding("Stadt");
-
-             DataGridTextColumn landColumn = new DataGridTextColumn();
-             landColumn.Header = "Land";
-             landColumn.Binding = new System.Windows.Data.Binding("Land");
-
-             DataGridTextColumn temperaturColumn = new DataGridTextColumn();
-             temperaturColumn.Header = "Temperatur";
-             temperaturColumn.Binding = new System.Windows.Data.Binding("Temperatur");
-
-             DataGridTextColumn gefuehltColumn = new DataGridTextColumn();
-             gefuehltColumn.Header = "Gefühlt";
-             gefuehltColumn.Binding = new System.Windows.Data.Binding("Gefuehlt");
-
-             DataGridTextColumn sichtweiteColumn = new DataGridTextColumn();
-             sichtweiteColumn.Header = "Sichtweite";
-             sichtweiteColumn.Binding = new System.Windows.Data.Binding("Sichtweite");
-
-             DataGridTextColumn windstaerkeColumn = new DataGridTextColumn();
-             windstaerkeColumn.Header = "Windstärke";
-             windstaerkeColumn.Binding = new System.Windows.Data.Binding("Windstaerke");
-
-             DataGridTextColumn windrichtungColumn = new DataGridTextColumn();
-             windrichtungColumn.Header = "Windrichtung";
-             windrichtungColumn.Binding = new System.Windows.Data.Binding("Windrichtung");
-
-             DataGridTextColumn sonnenaufgangColumn = new DataGridTextColumn();
-             sonnenaufgangColumn.Header = "Sonnenaufgang";
-             sonnenaufgangColumn.Binding = new System.Windows.Data.Binding("Sonnenaufgang");
-
-             DataGridTextColumn sonnenuntergangColumn = new DataGridTextColumn();
-             sonnenuntergangColumn.Header = "Sonnenuntergang";
-             sonnenuntergangColumn.Binding = new System.Windows.Data.Binding("Sonnenuntergang");
-
-             // Füge die Spalten zum DataGrid hinzu
-             dtGrid_Forecast.Columns.Add(tagColumn);
-             dtGrid_Forecast.Columns.Add(stadtColumn);
-             dtGrid_Forecast.Columns.Add(landColumn);
-             dtGrid_Forecast.Columns.Add(temperaturColumn);
-             dtGrid_Forecast.Columns.Add(gefuehltColumn);
-             dtGrid_Forecast.Columns.Add(sichtweiteColumn);
-             dtGrid_Forecast.Columns.Add(windstaerkeColumn);
-             dtGrid_Forecast.Columns.Add(windrichtungColumn);
-             dtGrid_Forecast.Columns.Add(sonnenaufgangColumn);
-             dtGrid_Forecast.Columns.Add(sonnenuntergangColumn);
-
-             string city = txtBox_Stadt.Text;*/
-
-
-
+           
             List<ForecastData> forecastDataList = new List<ForecastData>();
             for (int i = 0; i < weatherMapForecast.list.Count; i++)
             {
-                ForecastData forecastData = new ForecastData { Uhrzeit = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = weatherMapForecast.list[i].wind.deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
+                string deg = "";
+
+                if (weatherMapForecast.list[i].wind.deg >= 0 && weatherMapForecast.list[i].wind.deg < 45)
+                {
+                    deg = "N";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 45 && weatherMapForecast.list[i].wind.deg < 90)
+                {
+                    deg = "NO";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 90 && weatherMapForecast.list[i].wind.deg < 135)
+                {
+                    deg = "O";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 135 && weatherMapForecast.list[i].wind.deg < 180)
+                {
+                    deg = "SO";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 180 && weatherMapForecast.list[i].wind.deg < 225)
+                {
+                    deg = "S";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 225 && weatherMapForecast.list[i].wind.deg < 270)
+                {
+                    deg = "SW";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 270 && weatherMapForecast.list[i].wind.deg < 315)
+                {
+                    deg = "W";
+                }
+                else if (weatherMapForecast.list[i].wind.deg >= 315 && weatherMapForecast.list[i].wind.deg < 360)
+                {
+                    deg = "NW";
+                }
+                ForecastData forecastData = new ForecastData { Uhrzeit = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
                forecastDataList.Add(forecastData);
             }
                 
-               
-
             // Setze die Datenquelle des DataGrids
             dtGrid_Forecast.ItemsSource = forecastDataList;
         }
                     
-
-
         private void ShowOldDates(object sender, RoutedEventArgs e) //Button Old Dates
         {
             string query = "SELECT * FROM weatherdata";
@@ -151,17 +152,5 @@ namespace WPF_UI
             adapter.Fill(dataset);
             return dataset;
         }
-    }
-
-    internal class ForecastData
-    {
-        public  string Uhrzeit { get; set; }
-        public float Temperatur { get; set; }
-        public float Feelslike { get; set; }
-        public int Sichtweite { get; set; }
-        public float Windstärke { get; set; }
-        public float Windrichtung { get; set; }
-        public string Sonnenaufgang { get; set; }
-        public string Sonnenuntergang { get; set; }
     }
 }

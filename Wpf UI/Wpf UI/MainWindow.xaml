@@ -19,7 +19,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="94,146,0,0" Text="Gefühlt" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBox_Gefühlt" HorizontalAlignment="Left" Margin="94,167,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtBox_Bedingungen" HorizontalAlignment="Left" Margin="332,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="498,87,0,0" Text="Sichtweite" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="498,87,0,0" Text="Sichtweite (in m)" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBox_Sichtweite" HorizontalAlignment="Left" Margin="498,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="661,87,0,0" Text="Windstärke" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBox_Windstärke" HorizontalAlignment="Left" Margin="661,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
