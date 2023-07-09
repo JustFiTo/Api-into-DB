@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APItoDB", "APItoDB.csproj", "{AC16F9F6-86FE-4DA6-B39B-BF308F0A31FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF UI", "WPF UI\WPF UI.csproj", "{E530779F-C336-4440-B47C-0182F73B8746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC16F9F6-86FE-4DA6-B39B-BF308F0A31FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC16F9F6-86FE-4DA6-B39B-BF308F0A31FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC16F9F6-86FE-4DA6-B39B-BF308F0A31FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC16F9F6-86FE-4DA6-B39B-BF308F0A31FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E530779F-C336-4440-B47C-0182F73B8746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E530779F-C336-4440-B47C-0182F73B8746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E530779F-C336-4440-B47C-0182F73B8746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E530779F-C336-4440-B47C-0182F73B8746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EAB9CDF8-F417-47D2-A867-FAD4A323B5DA}
+		SolutionGuid = {E4EA6365-5EB2-46B3-AADE-8D74950691BF}
 	EndGlobalSection
 EndGlobal
