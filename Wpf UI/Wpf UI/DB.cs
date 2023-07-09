@@ -58,7 +58,10 @@ namespace APItoDB
             conn.Open();
             var cmd = new MySqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "INSERT INTO Weatherdata (dates, name, country, temp, feelslike, decription, visibility, windSpeed, windDeg, sunset, sunrise) VALUES ('" + dateString + "', '" + weathermap.name + "', '" + weathermap.sys.country + "'," + weathermap.main.temp + ", " + weathermap.main.feels_like + ", '" + weathermap.weather[0].description + "', " + weathermap.visibility + ", " + weathermap.wind.speed + ", '" + deg + "', '" + sunsetString + "', '" + sunriseString + "');";
+            string temp = weathermap.main.temp.ToString().Replace(",",".");
+            string feelsLike = weathermap.main.feels_like.ToString().Replace(",", ".");
+            string windSpeed = weathermap.wind.speed.ToString().Replace(",", ".");
+            cmd.CommandText = "INSERT INTO Weatherdata (dates, name, country, temp, feelslike, description, visibility, windSpeed, windDeg, sunset, sunrise) VALUES ('" + dateString + "', '" + weathermap.name + "', '" + weathermap.sys.country + "','" + temp + "', '" + feelsLike + "', '" + weathermap.weather[0].description + "', " + weathermap.visibility + ", '" + windSpeed + "', '" + deg + "', '" + sunsetString + "', '" + sunriseString + "');";
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -68,10 +71,11 @@ namespace APItoDB
             string server = "localhost";
             string database = "API";
             string user = "root";
+            string password = "1234";
             string port = "3306";
             string sslM = "Required";
 
-            string connString = String.Format("server={0};port={1};user id={2}; database={3}; SslMode={4}", server, port, user, database, sslM);
+            string connString = String.Format("server={0};port={1};user id={2};password={3}; database={4}; SslMode={5}", server, port, user, password, database, sslM);
 
             MySqlConnection conn = new MySqlConnection(connString);
 

@@ -56,7 +56,7 @@ namespace WPF_UI
 
             txtBox_TextLand.Text = weatherMap.sys.country.ToString();
             txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
-            //txtBox_Bedingungen.Text = weatherMap.weather.description...
+            txtBox_Bedingungen.Text = weatherMap.weather[0].description.ToString();
             txtBox_Sichtweite.Text = weatherMap.visibility.ToString();
             txtBox_Windstärke.Text = weatherMap.wind.speed.ToString();
             txtBox_Gefühlt.Text = weatherMap.main.feels_like.ToString();
@@ -72,7 +72,8 @@ namespace WPF_UI
 
             for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
             {
-                dtGrid_Forecast.ItemsSource = weatherMapForecast.list;          //date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
+                Console.WriteLine(weatherMapForecast.list[i]);
+                //dtGrid_Forecast.ItemsSource = weatherMapForecast.list[i].main;          //date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
                 //dtGrid_Forecast.ItemsSource = weatherMapForecast.city.name;
 
                 //Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
@@ -80,7 +81,7 @@ namespace WPF_UI
             }
 
             DB.AddSQL(weatherMap);
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         private void CreateDataGridColumns()
