@@ -61,7 +61,7 @@ namespace APItoDB
             string temp = weathermap.main.temp.ToString().Replace(",",".");
             string feelsLike = weathermap.main.feels_like.ToString().Replace(",", ".");
             string windSpeed = weathermap.wind.speed.ToString().Replace(",", ".");
-            cmd.CommandText = "INSERT INTO Weatherdata (dates, name, country, temp, feelslike, description, visibility, windSpeed, windDeg, sunset, sunrise) VALUES ('" + dateString + "', '" + weathermap.name + "', '" + weathermap.sys.country + "','" + temp + "', '" + feelsLike + "', '" + weathermap.weather[0].description + "', " + weathermap.visibility + ", '" + windSpeed + "', '" + deg + "', '" + sunsetString + "', '" + sunriseString + "');";
+            cmd.CommandText = "INSERT INTO Weatherdata (dates, name, country, temp, feelslike, decription, visibility, windSpeed, windDeg, sunset, sunrise) VALUES ('" + dateString + "', '" + weathermap.name + "', '" + weathermap.sys.country + "','" + temp + "', '" + feelsLike + "', '" + weathermap.weather[0].description + "', " + weathermap.visibility + ", '" + windSpeed + "', '" + deg + "', '" + sunsetString + "', '" + sunriseString + "');";
             cmd.ExecuteNonQuery();
             conn.Close();
         }

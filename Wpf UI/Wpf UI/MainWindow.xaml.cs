@@ -137,6 +137,15 @@ namespace WPF_UI
             dtGrid_Forecast.Columns.Add(windrichtungColumn);
             dtGrid_Forecast.Columns.Add(sonnenaufgangColumn);
             dtGrid_Forecast.Columns.Add(sonnenuntergangColumn);
+
+            List<ForecastData> forecastDataList = new List<ForecastData>
+            {
+                new ForecastData { Tag = "Montag", Stadt = "Berlin", Land = "Deutschland", Temperatur = 20, Feelslike = 21, Sichtweite = 10000, Windstärke = 2, Windrichtung = "NW", Sonnenaufgang = "06:00:01", Sonnenuntergang = "22:22:22" },
+                // Weitere Datenobjekte hinzufügen...
+            };
+
+            // Setze die Datenquelle des DataGrids
+            dtGrid_Forecast.ItemsSource = forecastDataList;
         }
 
 
@@ -176,5 +185,20 @@ namespace WPF_UI
             adapter.Fill(dataset);
             return dataset;
         }
+    }
+
+    internal class ForecastData
+    {
+        public  string Tag { get; set; }
+        public string Stadt { get; set; }
+
+        public string Land { get; set; }
+        public int Temperatur { get; set; }
+        public int Feelslike { get; set; }
+        public int Sichtweite { get; set; }
+        public int Windstärke { get; set; }
+        public string Windrichtung { get; set; }
+        public string Sonnenaufgang { get; set; }
+        public string Sonnenuntergang { get; set; }
     }
 }
