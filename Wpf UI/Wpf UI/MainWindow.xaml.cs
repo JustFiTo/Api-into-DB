@@ -150,18 +150,31 @@ namespace WPF_UI
 
         private void ShowOldDates(object sender, RoutedEventArgs e) //Button Old Dates
         {
-            DataTable dataTable = new DataTable();
-            using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM Weatherdata", conn))
-            {
-                adapter.Fill(dataTable);
-            }
+            string query = "SELECT * FROM weatherdata";
 
-            dataGrid.ItemsSource = dataTable.DefaultView;
+            //DataTable dataTable = new DataTable();
+            ////dtGrid_OldDates.Columns.Add("Test");
+
+            //using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM weatherdata", conn))
+            //{
+            //    adapter.Fill(dataTable);
+            //}
 
 
-            //ThirdWindow objThirdWindow = new ThirdWindow();
-            //this.Visibility = Visibility.Hidden;
-            //objThirdWindow.Show();
+
+            DataSet ds = new DataSet();
+            this.SelectRows(ds, query);
+
+            dtGrid_OldDates.ItemsSource = ds.Tables[0].DefaultView;
+        }
+
+        public DataSet SelectRows(DataSet dataset, string query)
+        {
+            MySqlConnection conn = DB.connectToDb();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            adapter.SelectCommand = new MySqlCommand(query, conn);
+            adapter.Fill(dataset);
+            return dataset;
         }
     }
 }
