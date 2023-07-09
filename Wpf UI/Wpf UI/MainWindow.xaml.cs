@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using System.Diagnostics.Metrics;
 using System.Net.Http;
 using System.Text.Json;
 using MySql.Data.MySqlClient;
@@ -26,15 +25,10 @@ namespace WPF_UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DataGrid dataGrid;
-        private MySqlConnection conn;
-
         public MainWindow()
         {
             InitializeComponent();
             CreateDataGridColumns();
-
-            dataGrid = dtGrid_OldDates;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,7 +39,6 @@ namespace WPF_UI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string city = txtBox_Stadt.Text;
-            //string date = txtBox_Von.Text;
 
             WeatherMap weatherMap = API.ResponseCurrent(city);
             WeatherMapForecast weatherMapForecast = API.ResponseForecast(city);
@@ -54,7 +47,7 @@ namespace WPF_UI
 
             txtBlock_Date.Text = date.AddSeconds(weatherMap.dt).ToString("dd.MM.yy");
 
-            txtBox_TextLand.Text = weatherMap.sys.country.ToString();
+            txtBlock_TextLand.Text = weatherMap.sys.country.ToString();
             txtBox_Temperatur.Text = weatherMap.main.temp.ToString();
             txtBox_Bedingungen.Text = weatherMap.weather[0].description.ToString();
             txtBox_Sichtweite.Text = weatherMap.visibility.ToString();
@@ -65,23 +58,12 @@ namespace WPF_UI
             txtBox_Windrichtung.Text = weatherMap.wind.deg.ToString();
 
 
-
-            //DateTime date = txtBox_Von.Text();
-
-
-
             for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
             {
                 Console.WriteLine(weatherMapForecast.list[i]);
-                //dtGrid_Forecast.ItemsSource = weatherMapForecast.list[i].main;          //date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy");
-                //dtGrid_Forecast.ItemsSource = weatherMapForecast.city.name;
-
-                //Console.WriteLine($"Die Temperaturen am {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yyyy")} um {date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss")}Uhr in {weatherMapForecast.city.name} liegen gefühlt bei {weatherMapForecast.list[i].main.feels_like}°C, " +
-                //$"aber in wirklichkeit ist es {weatherMapForecast.list[i].main.temp}°C warm\n");
             }
 
             DB.AddSQL(weatherMap);
-            //Console.ReadKey();
         }
 
         private void CreateDataGridColumns()
@@ -149,27 +131,9 @@ namespace WPF_UI
         }
 
 
-
-        //private void OpenWindow(object sender, RoutedEventArgs e)
-        //{
-        //    SecendWindow objSecondWindow = new SecendWindow();
-        //    this.Visibility = Visibility.Hidden;
-        //    objSecondWindow.Show();
-        //}
-
         private void ShowOldDates(object sender, RoutedEventArgs e) //Button Old Dates
         {
             string query = "SELECT * FROM weatherdata";
-
-            //DataTable dataTable = new DataTable();
-            ////dtGrid_OldDates.Columns.Add("Test");
-
-            //using (MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM weatherdata", conn))
-            //{
-            //    adapter.Fill(dataTable);
-            //}
-
-
 
             DataSet ds = new DataSet();
             this.SelectRows(ds, query);
