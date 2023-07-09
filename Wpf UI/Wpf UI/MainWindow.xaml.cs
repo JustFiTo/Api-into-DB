@@ -60,7 +60,7 @@ namespace WPF_UI
             for (int i = 0; i < weatherMapForecast.list.Count; i++)
             {
                 string deg = Program.changeWindDegForecast(weatherMapForecast, i);
-                ForecastData forecastData = new ForecastData { Uhrzeit = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
+                ForecastData forecastData = new ForecastData { Datum = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("dd.MM.yy, HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
                forecastDataList.Add(forecastData);
             }
                 

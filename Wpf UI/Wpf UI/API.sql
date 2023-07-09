@@ -5,12 +5,12 @@ CREATE TABLE IF NOT EXISTS Weatherdata (
     dates VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255),  
     country VARCHAR(255),
-    temp INT,
-    feelslike INT,
-    decription VARCHAR(255),
+    temp FLOAT,
+    feelslike FLOAT,
+    description VARCHAR(255),
     visibility INT,
-    windSpeed INT,
-    windDeg INT,
+    windSpeed FLOAT,
+    windDeg VARCHAR(10),
     sunset VARCHAR(255),
     sunrise VARCHAR(255)
 );
