@@ -8,30 +8,30 @@
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
         <Button Content="Run" Margin="916,10,10,525" Click="Button_Click"/>
-        <TextBox x:Name="txtBox_Stadt" HorizontalAlignment="Left" Margin="94,20,0,0" Text="Stadt" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="25" TextAlignment="Center" FontSize="16"/>
-        <Button x:Name="btn_OldDates" Content="Old Dates" HorizontalAlignment="Left" Margin="29,376,0,0" VerticalAlignment="Top" Height="34" Width="60" Click="ShowOldDates"/>
+        <TextBox x:Name="txtBox_Stadt" HorizontalAlignment="Left" Margin="94,20,0,0" Text="Bitte Stadt eingeben" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="25" TextAlignment="Center" FontSize="16"/>
+        <Button x:Name="btn_OldDates" Content="Show old Dates" HorizontalAlignment="Left" Margin="29,376,0,0" VerticalAlignment="Top" Height="34" Width="60" Click="ShowOldDates"/>
         <TextBlock x:Name="txtBlock_Date" Text=". . ." TextWrapping="Wrap" Margin="535,20,396,539" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBlock Text="Am" TextWrapping="Wrap" Margin="479,20,491,539" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="94,87,0,0" Text="Aktuelle Temperatur" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Temperatur" HorizontalAlignment="Left" Margin="94,108,0,0" Text="00,00C°" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Temperatur" HorizontalAlignment="Left" Margin="94,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="txtBlock_TextLand" HorizontalAlignment="Left" Margin="94,50,0,0" Text="Land" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="332,87,0,0" Text="Wetterbedingungen" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="94,146,0,0" Text="Gefühlt" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Gefühlt" HorizontalAlignment="Left" Margin="94,167,0,0" Text="00,00C°" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBox_Bedingungen" HorizontalAlignment="Left" Margin="332,108,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Gefühlt" HorizontalAlignment="Left" Margin="94,167,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Bedingungen" HorizontalAlignment="Left" Margin="332,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="498,87,0,0" Text="Sichtweite" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Sichtweite" HorizontalAlignment="Left" Margin="498,108,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Sichtweite" HorizontalAlignment="Left" Margin="498,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="661,87,0,0" Text="Windstärke" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Windstärke" HorizontalAlignment="Left" Margin="661,108,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Windstärke" HorizontalAlignment="Left" Margin="661,108,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="332,149,0,0" Text="Sonnenaufgang" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="498,149,0,0" Text="Sonnenuntergang" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Aufgang" HorizontalAlignment="Left" Margin="332,170,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtBox_Untergang" HorizontalAlignment="Left" Margin="498,170,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Aufgang" HorizontalAlignment="Left" Margin="332,170,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Untergang" HorizontalAlignment="Left" Margin="498,170,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="661,149,0,0" Text="Windrichtung" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBox_Windrichtung" HorizontalAlignment="Left" Margin="661,170,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Windrichtung" HorizontalAlignment="Left" Margin="661,170,0,0" Text="Wird ausgefüllt..." TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <DataGrid x:Name="dtGrid_Forecast" AutoGenerateColumns="True" Margin="94,217,90,216" />
         <DataGrid x:Name="dtGrid_OldDates" AutoGenerateColumns="True" Margin="94,376,90,10"/>
-        <TextBlock HorizontalAlignment="Left" Margin="94,193,0,0" TextWrapping="Wrap" Text="Vorhersage für die kommenden Tage" VerticalAlignment="Top" Height="19" Width="816"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,193,0,0" TextWrapping="Wrap" Text="Vorhersage für die kommenden Stunden" VerticalAlignment="Top" Height="19" Width="816"/>
 
     </Grid>
 
