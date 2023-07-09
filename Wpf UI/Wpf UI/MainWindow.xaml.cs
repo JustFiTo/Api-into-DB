@@ -28,7 +28,6 @@ namespace WPF_UI
         public MainWindow()
         {
             InitializeComponent();
-            CreateDataGridColumns();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -57,78 +56,81 @@ namespace WPF_UI
             txtBox_Untergang.Text = date.AddSeconds(weatherMap.sys.sunset).ToString();
             txtBox_Windrichtung.Text = weatherMap.wind.deg.ToString();
 
-
-            for (int i = 0; i < weatherMapForecast.list.Count; i++) //0 first forecast, 1 later forecast ...
-            {
-                Console.WriteLine(weatherMapForecast.list[i]);
-            }
-
+            this.CreateDataGridColumns(weatherMapForecast, date);
             DB.AddSQL(weatherMap);
         }
 
-        private void CreateDataGridColumns()
+        private void CreateDataGridColumns(WeatherMapForecast weatherMapForecast, DateTime date)
         {
-            DataGridTextColumn tagColumn = new DataGridTextColumn();
-            tagColumn.Header = "Tag";
-            tagColumn.Binding = new System.Windows.Data.Binding("Tag");
+            /* DataGridTextColumn tagColumn = new DataGridTextColumn();
+             tagColumn.Header = "Tag";
+             tagColumn.Binding = new System.Windows.Data.Binding("Tag");
 
-            DataGridTextColumn stadtColumn = new DataGridTextColumn();
-            stadtColumn.Header = "Stadt";
-            stadtColumn.Binding = new System.Windows.Data.Binding("Stadt");
+             DataGridTextColumn stadtColumn = new DataGridTextColumn();
+             stadtColumn.Header = "Stadt";
+             stadtColumn.Binding = new System.Windows.Data.Binding("Stadt");
 
-            DataGridTextColumn landColumn = new DataGridTextColumn();
-            landColumn.Header = "Land";
-            landColumn.Binding = new System.Windows.Data.Binding("Land");
+             DataGridTextColumn landColumn = new DataGridTextColumn();
+             landColumn.Header = "Land";
+             landColumn.Binding = new System.Windows.Data.Binding("Land");
 
-            DataGridTextColumn temperaturColumn = new DataGridTextColumn();
-            temperaturColumn.Header = "Temperatur";
-            temperaturColumn.Binding = new System.Windows.Data.Binding("Temperatur");
+             DataGridTextColumn temperaturColumn = new DataGridTextColumn();
+             temperaturColumn.Header = "Temperatur";
+             temperaturColumn.Binding = new System.Windows.Data.Binding("Temperatur");
 
-            DataGridTextColumn gefuehltColumn = new DataGridTextColumn();
-            gefuehltColumn.Header = "Gefühlt";
-            gefuehltColumn.Binding = new System.Windows.Data.Binding("Gefuehlt");
+             DataGridTextColumn gefuehltColumn = new DataGridTextColumn();
+             gefuehltColumn.Header = "Gefühlt";
+             gefuehltColumn.Binding = new System.Windows.Data.Binding("Gefuehlt");
 
-            DataGridTextColumn sichtweiteColumn = new DataGridTextColumn();
-            sichtweiteColumn.Header = "Sichtweite";
-            sichtweiteColumn.Binding = new System.Windows.Data.Binding("Sichtweite");
+             DataGridTextColumn sichtweiteColumn = new DataGridTextColumn();
+             sichtweiteColumn.Header = "Sichtweite";
+             sichtweiteColumn.Binding = new System.Windows.Data.Binding("Sichtweite");
 
-            DataGridTextColumn windstaerkeColumn = new DataGridTextColumn();
-            windstaerkeColumn.Header = "Windstärke";
-            windstaerkeColumn.Binding = new System.Windows.Data.Binding("Windstaerke");
+             DataGridTextColumn windstaerkeColumn = new DataGridTextColumn();
+             windstaerkeColumn.Header = "Windstärke";
+             windstaerkeColumn.Binding = new System.Windows.Data.Binding("Windstaerke");
 
-            DataGridTextColumn windrichtungColumn = new DataGridTextColumn();
-            windrichtungColumn.Header = "Windrichtung";
-            windrichtungColumn.Binding = new System.Windows.Data.Binding("Windrichtung");
+             DataGridTextColumn windrichtungColumn = new DataGridTextColumn();
+             windrichtungColumn.Header = "Windrichtung";
+             windrichtungColumn.Binding = new System.Windows.Data.Binding("Windrichtung");
 
-            DataGridTextColumn sonnenaufgangColumn = new DataGridTextColumn();
-            sonnenaufgangColumn.Header = "Sonnenaufgang";
-            sonnenaufgangColumn.Binding = new System.Windows.Data.Binding("Sonnenaufgang");
+             DataGridTextColumn sonnenaufgangColumn = new DataGridTextColumn();
+             sonnenaufgangColumn.Header = "Sonnenaufgang";
+             sonnenaufgangColumn.Binding = new System.Windows.Data.Binding("Sonnenaufgang");
 
-            DataGridTextColumn sonnenuntergangColumn = new DataGridTextColumn();
-            sonnenuntergangColumn.Header = "Sonnenuntergang";
-            sonnenuntergangColumn.Binding = new System.Windows.Data.Binding("Sonnenuntergang");
+             DataGridTextColumn sonnenuntergangColumn = new DataGridTextColumn();
+             sonnenuntergangColumn.Header = "Sonnenuntergang";
+             sonnenuntergangColumn.Binding = new System.Windows.Data.Binding("Sonnenuntergang");
 
-            // Füge die Spalten zum DataGrid hinzu
-            dtGrid_Forecast.Columns.Add(tagColumn);
-            dtGrid_Forecast.Columns.Add(stadtColumn);
-            dtGrid_Forecast.Columns.Add(landColumn);
-            dtGrid_Forecast.Columns.Add(temperaturColumn);
-            dtGrid_Forecast.Columns.Add(gefuehltColumn);
-            dtGrid_Forecast.Columns.Add(sichtweiteColumn);
-            dtGrid_Forecast.Columns.Add(windstaerkeColumn);
-            dtGrid_Forecast.Columns.Add(windrichtungColumn);
-            dtGrid_Forecast.Columns.Add(sonnenaufgangColumn);
-            dtGrid_Forecast.Columns.Add(sonnenuntergangColumn);
+             // Füge die Spalten zum DataGrid hinzu
+             dtGrid_Forecast.Columns.Add(tagColumn);
+             dtGrid_Forecast.Columns.Add(stadtColumn);
+             dtGrid_Forecast.Columns.Add(landColumn);
+             dtGrid_Forecast.Columns.Add(temperaturColumn);
+             dtGrid_Forecast.Columns.Add(gefuehltColumn);
+             dtGrid_Forecast.Columns.Add(sichtweiteColumn);
+             dtGrid_Forecast.Columns.Add(windstaerkeColumn);
+             dtGrid_Forecast.Columns.Add(windrichtungColumn);
+             dtGrid_Forecast.Columns.Add(sonnenaufgangColumn);
+             dtGrid_Forecast.Columns.Add(sonnenuntergangColumn);
 
-            List<ForecastData> forecastDataList = new List<ForecastData>
+             string city = txtBox_Stadt.Text;*/
+
+
+
+            List<ForecastData> forecastDataList = new List<ForecastData>();
+            for (int i = 0; i < weatherMapForecast.list.Count; i++)
             {
-                new ForecastData { Tag = "Montag", Stadt = "Berlin", Land = "Deutschland", Temperatur = 20, Feelslike = 21, Sichtweite = 10000, Windstärke = 2, Windrichtung = "NW", Sonnenaufgang = "06:00:01", Sonnenuntergang = "22:22:22" },
-                // Weitere Datenobjekte hinzufügen...
-            };
+                ForecastData forecastData = new ForecastData { Uhrzeit = date.AddSeconds(weatherMapForecast.list[i].dt).ToString("HH:mm:ss"), Temperatur = weatherMapForecast.list[i].main.temp, Feelslike = weatherMapForecast.list[i].main.feels_like, Sichtweite = 10000, Windstärke = weatherMapForecast.list[i].wind.speed, Windrichtung = weatherMapForecast.list[i].wind.deg, Sonnenaufgang = date.AddSeconds(weatherMapForecast.city.sunrise).ToString("HH:mm:ss"), Sonnenuntergang = date.AddSeconds(weatherMapForecast.city.sunset).ToString("HH:mm:ss") };
+               forecastDataList.Add(forecastData);
+            }
+                
+               
 
             // Setze die Datenquelle des DataGrids
             dtGrid_Forecast.ItemsSource = forecastDataList;
         }
+                    
 
 
         private void ShowOldDates(object sender, RoutedEventArgs e) //Button Old Dates
@@ -153,15 +155,12 @@ namespace WPF_UI
 
     internal class ForecastData
     {
-        public  string Tag { get; set; }
-        public string Stadt { get; set; }
-
-        public string Land { get; set; }
-        public int Temperatur { get; set; }
-        public int Feelslike { get; set; }
+        public  string Uhrzeit { get; set; }
+        public float Temperatur { get; set; }
+        public float Feelslike { get; set; }
         public int Sichtweite { get; set; }
-        public int Windstärke { get; set; }
-        public string Windrichtung { get; set; }
+        public float Windstärke { get; set; }
+        public float Windrichtung { get; set; }
         public string Sonnenaufgang { get; set; }
         public string Sonnenuntergang { get; set; }
     }
